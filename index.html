@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTEROID BLAST!</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="media/favicon.ico">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="game__container">
+            <div class="lives">
+                <div>
+                    LIVES:
+                    <img src="media/playerlife.png" alt="">
+                </div>
+                <div><img src="media/playerlife.png" alt=""></div>
+                <div><img src="media/playerlife.png" alt=""></div>
+                <div><img src="media/playerlife.png" alt=""></div>
+                <div><img src="media/playerlife.png" alt=""></div>
+            </div>
+            <div class="score">
+                <div>
+                    <h1>SCORE:</h1>
+                </div>
+                <div>
+                    <h1 id="current__score">0</h1>
+                </div>
+            </div>
+        </div>
+        <div class="start__page">
+            <div>
+                <h1 class="animate__animated animate__headShake">ASTEROID BLAST!</h1>
+                <h3>Destroy all brown asteroids to win! <br> Avoid or destroy small asteroids for more points.</h3>
+                <h2 class="button" id="startBtn">CLASSIC</h2>
+                <h2 class="button" id="endlessBtn">ENDLESS</h2>
+            </div>
+
+        </div>
+        <div class="game__over">
+            <div>
+                <h1>YOU DIED!</h1>
+                <h2>Who's gonna destroy the asteroids now huh..</h2>
+                <h2 class="finalScore"></h2>
+                <h2 class="button" id="restartBtn">RESTART</h2>
+            </div>
+        </div>
+        <div class="congrats">
+            <div>
+                <h1>YOU WON!</h1>
+                <h2>ALL ASTEROIDS DESTROYED</h2>
+                <h2 class="finalScore2"></h2>
+                <h2 class="button" id="restart2Btn">RESTART</h2>
+            </div>
+        </div>
+    </div>
+   
+<script src="main.js"></script>
+</body>
+</html>

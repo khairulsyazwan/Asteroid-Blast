@@ -1,0 +1,211 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body {
+    /* background-color: rgb(22, 22, 40);  */
+    background: url("media/bodybg.jpeg");
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    animation: scrollRight 60s infinite;
+    cursor: crosshair;
+}
+
+@keyframes scrollRight {
+    from {background-position-x: 0px;}
+    to {background-position-x: 800px;}
+}
+
+
+.container {
+    height: 700px;
+    /* width: 600px; */
+    /* border: 1px solid red; */
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__container {
+    height: 700px;
+    width: 800px;
+    border: 3px solid white;
+    background: url(media/gamebg.png);
+    animation: bgScroll 5s linear infinite;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+@keyframes bgScroll {
+    from {background-position-y: 0px;}
+    to {background-position-y: 600px;}
+}
+
+.player {
+    height: 40px;
+    width: 40px;
+    margin-left: -20px;
+    position: absolute;
+}
+
+.asteroid {
+    width: 50px;
+    margin-left: -25px;
+    position: absolute;
+    /* animation: rotate 6s infinite; */
+}
+
+.asteroidShower {
+    width: 40px;
+    margin-left: -20px;
+    position: absolute;
+    /* animation: rotate 6s infinite; */
+}
+
+
+.laser {
+    width: 10px; 
+    height: 30px;
+    margin-left: -5px;
+    position: absolute;
+}
+.game__over {
+    display: none;
+    position: absolute;
+    margin: 0 auto;
+    background: #6b18187e;
+    color: white;
+    text-align: center;
+    height: 700px;
+    width: 800px;
+}
+
+.game__over > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.game__over h1{
+    font-size: 60px;
+    font-weight: 900;
+    margin: 30px auto;
+}
+
+.game__over h2{
+    margin: 30px auto;
+    text-align: center;
+}
+
+.congrats {
+    display: none;
+    position: absolute;
+    height: 700px;
+    width: 800px;
+    margin: 0 auto;
+    background: url("media/purple.png");
+    color: white;
+    text-align: center;
+    animation: bgScroll 5s linear infinite;
+}
+
+.congrats > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.congrats h1{
+    font-size: 60px;
+    font-weight: 900;
+    margin: 30px auto;
+}
+
+.congrats h2{
+    margin: 30px auto;
+    text-align: center;
+}
+
+.start__page {
+    display: none;
+    position: absolute;
+    background: url(media/gamebg.png);
+    animation: bgScroll 5s linear infinite;
+    border: 3px solid white;
+    color: white;
+    height: 700px;
+    width: 800px;
+    align-items: center;
+    justify-content: center;
+}
+
+.start__page h1{
+    font-size: 60px;
+    font-weight: 900;
+    margin: 30px auto;
+}
+
+.start__page h3{
+    margin: 30px auto;
+    text-align: center;
+}
+
+
+
+.start__page > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+.lives {
+    display: flex;
+    margin: 1px 15px 10px 20px;
+    height: 30px;
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.score {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    margin: 0;
+    width: 40%;
+}
+
+#current__score {
+    font-size: 30px;
+}
+
+
+.button {
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.button:hover{
+    background-color: white;
+    color: black
+}

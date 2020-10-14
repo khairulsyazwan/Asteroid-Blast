@@ -82,8 +82,8 @@ function startEndless() {
         let x = i * 40;
         createAsteroid($gameContainer, x, y);
     }
-    asteroidCooldown = 5;
-    asteroidSpeed = 200;
+    asteroidCooldown = 3;
+    asteroidSpeed = 350;
 }
 
 function startGameBtn(e){
@@ -91,6 +91,7 @@ function startGameBtn(e){
     restartBtn = document.getElementById("restartBtn")
     if(e.target == startBtn){
         gameState.startPageOpen = false;
+        gameState.classicMode = true;
         document.querySelector(".start__page").style.display = "none";
         const sound = new Audio("media/laser9.ogg");
         sound.play();
@@ -103,6 +104,7 @@ function startGameBtn(e){
         window.location.reload();
     }else if(e.target == endlessBtn){
         gameState.startPageOpen = false;
+        gameState.endlessMode = true;
         document.querySelector(".start__page").style.display = "none";
         const sound = new Audio("media/laser9.ogg");
         sound.play();
@@ -301,13 +303,24 @@ function moveLaser(timeDifference, $gameContainer){
             const asteroid = asteroidShower[index];
             if (asteroidShower.isGone) continue;
             let r2 = asteroid.$asteroidShower.getBoundingClientRect();
-            if (hitDetection(r1, r2) && asteroidShower[index].y > 300){
+            if (hitDetection(r1, r2) && asteroidShower[index].y > 260 && gameState.classicMode){
                 removeLaser($gameContainer, laser);
                 removeAsteroidShower($gameContainer, asteroid);
                 const sound = new Audio("media/explosion.ogg");
                 sound.play();
                 gameState.points += 20;
                 updateScore();
+                console.log(gameState.classicMode);
+                break
+            }
+            if (hitDetection(r1, r2) && !gameState.classicMode){
+                removeLaser($gameContainer, laser);
+                removeAsteroidShower($gameContainer, asteroid);
+                const sound = new Audio("media/explosion.ogg");
+                sound.play();
+                gameState.points += 20;
+                updateScore();
+                console.log(gameState.classicMode);
                 break
             }
         }

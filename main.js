@@ -17,8 +17,8 @@ const keySpace = 32;
 //player settings
 const playerSpeed = 400;
 // time before player can shoot laser again
-const laserCooldownTime = 0.3;  
-const laserSpeed = 300;
+const laserCooldownTime = 0.4;  
+const laserSpeed = 400;
 
 
 // asteroid settings
@@ -29,7 +29,7 @@ const asteroidsYPadding =50;
 const asteroidsXSpacing = (gameWidth - asteroidsYPadding * 2) / (asteroidsPerRow - 1);
 const asteroidsYSpacing = 60;
 // adjust for difficulty
-let asteroidSpeed = 150;
+let asteroidSpeed = 300;
 let asteroidCooldown = 10;
 
 
@@ -60,7 +60,6 @@ function startPage(){
     let startPage = document.querySelector(".start__page");
     startPage.style.display = "block";
 
-    // createLaser($startPage, 20, -60);
     createPlayer($gameContainer);
 }
 
@@ -302,7 +301,7 @@ function moveLaser(timeDifference, $gameContainer){
             const asteroid = asteroidShower[index];
             if (asteroidShower.isGone) continue;
             let r2 = asteroid.$asteroidShower.getBoundingClientRect();
-            if (hitDetection(r1, r2)){
+            if (hitDetection(r1, r2) && asteroidShower[index].y > 300){
                 removeLaser($gameContainer, laser);
                 removeAsteroidShower($gameContainer, asteroid);
                 const sound = new Audio("media/explosion.ogg");

@@ -18,6 +18,9 @@ body {
     to {background-position-x: 800px;}
 }
 
+audio {
+    visibility: hidden;
+}
 
 .container {
     height: 700px;

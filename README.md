@@ -1,26 +1,86 @@
+## Introduction
+SEI 25 - Project 1
+Game is hosted here: https://pages.git.generalassemb.ly/khairulsyazwan/Asteroid_Blast/
 
-<b>DOM Manipulation</b><br>
-Used DOM to create game elements (player, asteroids, and asteroid shower).  Game elements are then positioned by using constants stored within the script, and reused for other element creations.
+#### Game Sequence & Objectives
+- The game is a spin-off of the ever so popular Space Invaders game.
+- Player controls the spaceship on screen using the keyboard.
+	- Up key for moving up
+	- Down key for moving down
+	- Right key for moving right
+	- Left key for moving left
+	- Spacebar to shoot lasers
+- The player is free to move within the game area.
+- In Classic Mode, game ends when all brown asteroids are destroyed.
+- Player gets points added for every asteroid destroyed
+	- 10 points for brown asteroids
+	- 20 points for grey asteroids
+- Player has 5 lives before game ends.
+	- 1 life removed whenever a grey asteroid hits the payer
+- In Endless Mode, player is free to destroy grey asteroids to get a high score.
+	- Game ends when the players lives are depleted.
 
-<b>Positioning of elements</b><br>
-Every element has been given a negative margin (eg. -20px), half of the width of the element (eg. 40px). This is to simplify centering placement of element.
 
-Creation of asteroids required multiple calculations to have it evenly spaced, to have enough room for movement.
+#### Project Objectives
+**Technical Requirements**
+- Display a game in the browser
+- Be interactive
+- Include separate HTML / CSS / JavaScript files
+- Use Javascript for DOM manipulation that is triggered by a browser event
 
-Game page width is 800px and asteroid width is 50px. Spacing between asteroids on X axis calculated by getting the difference between game page width and 2 X axis padding. It is then divided by the number of spaces in between asteroids (asteroids per row -1).
+**Required Deliverables**
+- A non-broken game, built by you, hosted somewhere on the internet
+- A link to your hosted working game in the URL section of your Github repo
+- A git repository hosted on Github, with a link to your hosted game, and frequent commits dating back to the very beginning of the project
+- A readme.md file with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
 
-Placement of asteroids on Y axis is calculated as such:
-y = asteroidsYPadding + index * asteroidsYSpacing;
-Placement of asteroids on X axis for every asteroid on Y axis:
-let x = i * asteroidsXSpacing + asteroidsXPadding;
+## Breakdown
+#### Minimum Viable Product Features
+- Player movement
+	1. Movement on X and Y axis
+	2. Ability to shoot lasers
+- Hit detection for lasers and asteroids
+	1. Asteroids and lasers should be removed when they intersect
+- A basic UI
+	1. Image for asteroids and spaceship
 
-<b>Game Movement</b><br>
-Game is controlled with keyboard inputs (up, down, left, right, space) for player movement and action. Key down and key up event listeners are put in place, to prevent action repetition, which will affect gameplay.
 
-A cool down timer is added to prevent the player from shooting too many lasers with one key. 
+#### Additional Game Features
+- Addition of Endless Mode
+- Interactive buttons, sound on click, animations
+- Sounds for lasers and asteroids when destroyed
 
-A game loop using window.requestAnimationFrame() was used, a recursive function that will loop through every frame. Time stamps were then used to get a constant in between frames. The difference between both time stamps (previous frame & current frame) is then divided by 1000 to get the time in seconds. That number will then be multiplied to a speed constant, that will be then used to move the game element position by its X or Y axis.
 
-Asteroid shower is created by individual asteroids. A random  cool down time (between a minimum set value and a set value for cool down time) is assigned to each asteroid upon creation. Time difference between two frames is subtracted from cool down value every frame. Once cool down time == 0, asteroids will create asteroid shower.
+#### Game Design & Pseudo Code Planning
+- Generation of asteroids on screen by calculating space available and space required. Then using DOM manipulation to create them on screen when the game is initialised.
+- Movement of game elements by using window.requestAnimationFrame() as a game loop.
+	- Getting a value from time-stamps between the previous frame and the current frame
+	- Then multiplying that value to a hardcoded speed value to move the elements Y and X position.
+- Hit detection by calling getBoundingClientRect()
+	- Comparing element top, bottom, right & left positions 
+	- If it intersects, code will run to remove element from screen
+- Limiting game element movement within the game screen
+	- Asteroids are removed if they wander off screen
+	- Player movement is limited to the game width and height
+- Cooldown time feature to space out firing rate
+	- Also implemented on the generation of small asteroids
+- Randomising cooldown time for small asteroid generation
+	- Small asteroids are generated by the bigger asteroids
+	- Every big asteroid has been given a random cooldown time upon creation during game initialisation.
 
-Hit detection is by checking if every rectangle of the elements intersect. Rectangles are generated by calling getBoundingClientRect(), which will give us top, bottom, right, left values of the element rectangle every frame. A function with a condition is passed, to give us a value of false every time the rectangles do not intersect. If the value is true, element will then be removed from the page and the array holding the element will be updated accordingly using array.filter().
+#### Technologies used:
+1. Javascript
+2. CSS
+3. HTML
+
+#### Bugs & Issues Faced
+- Game crashes when laser hits 2 asteroids that are overlapping in Classic Mode.
+	- Bug fixed by limiting when the laser can destroy the small asteroids. 
+	- Small asteroid can only be hit when the Y position surpasses the Y position of the last asteroid row.
+	- Change only applied to Classic Mode, so as to not affect the gameplay of Endless mode.
+
+#### Further Possible Improvements
+- Responsive page scaling for smaller screen devices
+- Addition of difficulty levels
+- Ability to choose laser and spaceship colour
+- Saving high scores

@@ -2,6 +2,13 @@
 SEI 25 - Project 1
 Game is hosted here: https://pages.git.generalassemb.ly/khairulsyazwan/Asteroid_Blast/
 
+Start Screen
+<img src="media/startscreen.png">
+Classic Mode
+<img src="media/classic.png">
+Endless Mode
+<img src="media/endless.png">
+
 #### Game Sequence & Objectives
 - The game is a spin-off of the ever so popular Space Invaders game.
 - Player controls the spaceship on screen using the keyboard.

@@ -20,12 +20,12 @@ body {
 
 audio {
     visibility: hidden;
+    height: 5px;
+    position: absolute;
 }
 
 .container {
     height: 700px;
-    /* width: 600px; */
-    /* border: 1px solid red; */
     margin-top: 80px;
     display: flex;
     justify-content: center;
@@ -60,14 +60,12 @@ audio {
     width: 50px;
     margin-left: -25px;
     position: absolute;
-    /* animation: rotate 6s infinite; */
 }
 
 .asteroidShower {
     width: 40px;
     margin-left: -20px;
     position: absolute;
-    /* animation: rotate 6s infinite; */
 }
 
 
@@ -165,7 +163,6 @@ audio {
     margin: 30px auto;
     text-align: center;
 }
-
 
 
 .start__page > div {

@@ -25,8 +25,8 @@ const laserSpeed = 400;
 const asteroidsRow = 4;
 const asteroidsPerRow = 7;
 const asteroidsXPadding = 50;
-const asteroidsYPadding =50;
-const asteroidsXSpacing = (gameWidth - asteroidsYPadding * 2) / (asteroidsPerRow - 1);
+const asteroidsYPadding = 50;
+const asteroidsXSpacing = (gameWidth - asteroidsXPadding * 2) / (asteroidsPerRow - 1);
 const asteroidsYSpacing = 60;
 // adjust for difficulty
 let asteroidSpeed = 300;
@@ -200,7 +200,7 @@ function rand(min, max) {
     if (min === undefined) min = 0;
     if (max === undefined) max = 1;
     return min + Math.random() * (max - min);
-  }
+}
 
 
 // movement functions
@@ -453,7 +453,6 @@ function hoverSound(e) {
 }
 
 startPage();
-// startGame();
 document.addEventListener("keydown", keypressDown);
 document.addEventListener("keyup", keypressUp);
 document.addEventListener("click", startGameBtn);

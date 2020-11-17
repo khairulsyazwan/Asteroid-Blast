@@ -1,6 +1,6 @@
 ## Introduction
 SEI 25 - Project 1
-Game is hosted here: https://pages.git.generalassemb.ly/khairulsyazwan/Asteroid_Blast/
+Game is hosted here: https://khairulsyazwan.github.io/Asteroid-Blast/
 
 Start Screen
 <img src="media/startscreen.png">
